@@ -36,20 +36,52 @@
 // })
 
 // color changer
-
 const title = document.createElement("p");
-const colorBlock = document.createElement("div");
-const colorHex = document.createElement("p");
 const colorChange = document.createElement("button");
+const colorsss = document.querySelector(".colorsss");
 
-document.body.append(title, colorBlock, colorHex, colorChange);
+const colorBlocks = [];
+const colorContainers = [];
+const lockStatuses = [];
+const colorHexes = [];
 
-title.textContent = "color randomizezr";
-colorHex.textContent = "#XXXXXX";
-colorChange.textContent = "click here to change color";
+document.body.append(title, colorChange);
 
-colorBlock.style.width = "150px";
-colorBlock.style.height = "150px";
+for (let i = 0; i < 5; i++) {
+  const colorContainer = document.createElement("div");
+  const colorBlock = document.createElement("div");
+  const lockStatus = document.createElement("p");
+  const colorHex = document.createElement("p");
+
+  colorContainers.push(colorContainer);
+  colorBlocks.push(colorBlock);
+  lockStatuses.push(lockStatus);
+  colorHexes.push(colorHex);
+
+  colorsss.append(colorContainer);
+  colorContainer.append(colorBlock, colorHex);
+  colorBlock.append(lockStatus);
+
+  colorContainer.id = `container${i}`;
+  colorBlock.id = `block${i}`;
+  colorHex.id = `hex${i}`;
+
+  title.textContent = "color randomizer";
+  colorHex.textContent = "#XXXXXX";
+  colorChange.textContent = "click here to change color";
+  lockStatus.textContent = "unlocked";
+
+  colorBlock.style.width = "150px";
+  colorBlock.style.height = "150px";
+
+  colorBlock.addEventListener("mouseenter", () => {
+    lockStatus.textContent = "lock color?";
+  });
+
+  colorBlock.addEventListener("mouseleave", () => {
+    lockStatus.textContent = "unlocked";
+  });
+}
 
 function randomizeColor() {
   const alphabet = "ABCDEF";
@@ -78,3 +110,7 @@ function randomizeColor() {
 }
 
 colorChange.addEventListener("click", randomizeColor);
+
+// digital cock
+
+// mem card
