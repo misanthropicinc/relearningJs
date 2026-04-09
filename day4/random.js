@@ -36,6 +36,7 @@
 // })
 
 // color changer
+
 const title = document.createElement("p");
 const colorChange = document.createElement("button");
 const colorsss = document.querySelector(".colorsss");
@@ -83,19 +84,19 @@ for (let i = 0; i < 5; i++) {
   });
 }
 
-function randomizeColor() {
-  const alphabet = "ABCDEF";
-  const nums = "0123456789";
+console.log(colorBlocks);
 
-  const alphArr = alphabet.split("");
-  const numArr = nums.split("");
+function randomizeColor() {
+  const chars = "ABCDEF1234567890";
+
+  const charsArr = chars.split("");
 
   const randomColor = [];
 
+  colorBlocks.forEach();
   for (let i = 0; i < 6; i++) {
-    const sourceArr = Math.floor(Math.random() * 2 + 1) < 2 ? alphArr : numArr;
-    const randomIndex = Math.floor(Math.random() * sourceArr.length);
-    const randomChar = sourceArr[randomIndex];
+    const randomIndex = Math.floor(Math.random() * charsArr.length);
+    const randomChar = charsArr[randomIndex];
     randomColor.push(randomChar);
   }
 
